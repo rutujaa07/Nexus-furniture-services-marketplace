@@ -16,6 +16,7 @@ app.use("/api/jobs", require("./routes/jobRoutes"));
 app.use("/api/quotes", require("./routes/quoteRoutes"));
 app.use("/api/reviews", require("./routes/reviewRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
+app.use("/api/upload", require("./routes/uploadRoutes"));
 app.get("/", (req, res) => {
   res.send("FurnishPro API is running...");
 });

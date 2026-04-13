@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema(
       enum: ["customer", "contractor", "admin"],
       default: "customer",
     },
+    portfolio: [{ type: String }],
     profilePic: { type: String },
     // Only for contractors
     businessName: { type: String },

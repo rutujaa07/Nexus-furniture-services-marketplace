@@ -109,3 +109,130 @@ const styles = {
 };
 
 export default Login;
+// import { useState } from "react";
+// import { useNavigate, Link } from "react-router-dom";
+// import { useAuth } from "../../context/AuthContext";
+// import axios from "../../api/axios";
+// import { toast } from "react-toastify";
+
+// const Login = () => {
+//   const [role, setRole] = useState("customer");
+//   const [form, setForm] = useState({ email: "", password: "" });
+//   const [loading, setLoading] = useState(false);
+//   const { login } = useAuth();
+//   const navigate = useNavigate();
+
+//   const handleChange = (e) =>
+//     setForm({ ...form, [e.target.name]: e.target.value });
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+//     try {
+//       const { data } = await axios.post("/auth/login", form);
+//       login(data);
+//       toast.success("Welcome back!");
+//       if (data.role === "customer") navigate("/customer/dashboard");
+//       else if (data.role === "contractor") navigate("/contractor/dashboard");
+//       else if (data.role === "admin") navigate("/admin/dashboard");
+//     } catch (error) {
+//       toast.error(error.response?.data?.message || "Login failed");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div className="page-narrow">
+//       <div className="auth-card">
+//         {/* Title */}
+//         <h1 style={{ fontSize: 28, marginBottom: 6 }}>Welcome back</h1>
+//         <p style={{ fontSize: 14, color: "var(--ink2)", marginBottom: 24 }}>
+//           Sign in to your Nexus account
+//         </p>
+
+//         {/* Role Tabs */}
+//         <div className="tabs">
+//           {["customer", "contractor", "admin"].map((r) => (
+//             <button
+//               key={r}
+//               className={`tab${role === r ? " active" : ""}`}
+//               onClick={() => setRole(r)}
+//               type="button"
+//             >
+//               {r.charAt(0).toUpperCase() + r.slice(1)}
+//             </button>
+//           ))}
+//         </div>
+
+//         {/* Form */}
+//         <form onSubmit={handleSubmit}>
+//           <div className="form-group">
+//             <label className="form-label">Email address</label>
+//             <input
+//               className="form-input"
+//               type="email"
+//               name="email"
+//               placeholder="you@example.com"
+//               onChange={handleChange}
+//               required
+//             />
+//           </div>
+
+//           <div className="form-group" style={{ marginBottom: 24 }}>
+//             <label className="form-label">Password</label>
+//             <input
+//               className="form-input"
+//               type="password"
+//               name="password"
+//               placeholder="••••••••"
+//               onChange={handleChange}
+//               required
+//             />
+//           </div>
+
+//           <button
+//             className="btn btn-primary btn-full"
+//             type="submit"
+//             disabled={loading}
+//           >
+//             {loading ? "Signing in..." : "Sign in →"}
+//           </button>
+//         </form>
+
+//         {/* Divider */}
+//         <div
+//           style={{
+//             display: "flex",
+//             alignItems: "center",
+//             gap: 12,
+//             margin: "20px 0",
+//             color: "var(--ink3)",
+//             fontSize: 13,
+//           }}
+//         >
+//           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
+//           or
+//           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
+//         </div>
+
+//         {/* Register link */}
+//         <p style={{ textAlign: "center", fontSize: 14, color: "var(--ink2)" }}>
+//           Don't have an account?{" "}
+//           <Link
+//             to="/register"
+//             style={{
+//               color: "var(--accent)",
+//               fontWeight: 500,
+//               textDecoration: "none",
+//             }}
+//           >
+//             Register
+//           </Link>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Login;
